@@ -4,9 +4,15 @@ class StudentService
   end
 
   def student_index
-    response = conn.get("slytherin?api_key=#{ENV['HOGWARTS_KEY']}")
-    json = JSON.parse(response.body, symbolize_names: true)
     json[:data][0][:attributes][:students]
+  end
+
+  def response
+    conn.get("#{@house}?api_key=#{ENV['HOGWARTS_KEY']}")
+  end
+
+  def json
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn

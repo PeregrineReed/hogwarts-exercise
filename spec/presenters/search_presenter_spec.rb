@@ -17,7 +17,7 @@ describe 'SearchFacade' do
 
     it 'students' do
       students = @search_facade.students.all? do |student|
-        student.class = Student
+        student.class == Student
       end
 
       expect(students).to eq(true)

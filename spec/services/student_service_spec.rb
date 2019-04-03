@@ -17,6 +17,11 @@ describe 'StudentService' do
       expect(@student_service.conn.build_url.path)
         .to eq('/api/v1/house/')
     end
+
+    it '#student_index' do
+      expect(@student_service.student_index).to be_a(Array)
+      expect(@student_service.student_index[0][:name]).to eq("Gormlaith Gaunt")
+    end
   end
 
 end
