@@ -23,5 +23,9 @@ describe 'SearchFacade' do
       expect(students).to eq(true)
     end
 
+    it 'service' do
+      expect(@search_facade.service).to be_a(StudentService)
+    end
+
   end
 end
